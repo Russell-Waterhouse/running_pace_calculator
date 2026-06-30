@@ -55,7 +55,7 @@ function text(minutes: number, seconds: number, distance: number, unit: Unit) {
   const otherUnit = unselectedUnit(unit);
   const [paceMinutesOriginalUnit, paceSecondsOriginalUnit] = calcPace(minutes, seconds, distance);
   const [paceMinutesOtherUnit, paceSecondsOtherUnit] = calcPace(minutes, seconds, convertDistance(distance, unit));
-  return `Ran ${distance} ${unitsToStrPlural(unit)} (${convertDistance(distance, unit)} ${unitsToStrPlural(otherUnit)}) in ${minutes}:${formatSeconds(seconds)};
+  return `Ran ${distance} ${unitsToStrPlural(unit)} (${convertDistance(distance, unit).toFixed(2)} ${unitsToStrPlural(otherUnit)}) in ${minutes}:${formatSeconds(seconds)};
 Average pace of ${paceMinutesOriginalUnit}:${formatSeconds(paceSecondsOriginalUnit)}/${unitsToStrSingular(unit)} (${paceMinutesOtherUnit}:${formatSeconds(paceSecondsOtherUnit)}/${unitsToStrSingular(otherUnit)}).`;
 }
 
