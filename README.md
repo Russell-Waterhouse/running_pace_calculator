@@ -6,7 +6,7 @@ docker compose up --build
 
 # Deployment
 
-This project is deployed to Netlify. You can see it at [TODO](TODO).
+This project is deployed to Netlify. You can see it at [running.rwater.house](https://running.rwater.house).
 I'm in the process of updating the URL.
 The deployment is done automatically when a new commit is pushed to the main branch.
 

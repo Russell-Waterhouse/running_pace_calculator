@@ -30,12 +30,11 @@ function unselectedUnit(unit: Unit) {
 const KM_PER_MILE = 1.60934;
 
 function convertDistance(distance: number, unit: Unit) {
-
   if (unit == Unit.Miles) {
     return distance * KM_PER_MILE;
   }
 
-  return distance * KM_PER_MILE;
+  return distance / KM_PER_MILE;
 }
 
 function formatSeconds(s: number) {
