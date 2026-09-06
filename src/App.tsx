@@ -1,26 +1,26 @@
 import './App.css'
 import { useState } from 'react'
 
-enum Unit {
+export enum Unit {
   Miles,
   Kilometers,
 }
 
-function unitsToStrPlural(unit: Unit) {
+export function unitsToStrPlural(unit: Unit) {
   if (unit == Unit.Miles) {
     return "miles";
   }
   return "km";
 }
 
-function unitsToStrSingular(unit: Unit) {
+export function unitsToStrSingular(unit: Unit) {
   if (unit == Unit.Miles) {
     return "mile";
   }
   return "km";
 }
 
-function unselectedUnit(unit: Unit) {
+export function unselectedUnit(unit: Unit) {
   if (unit == Unit.Miles) {
     return Unit.Kilometers;
   }
@@ -29,7 +29,7 @@ function unselectedUnit(unit: Unit) {
 
 const KM_PER_MILE = 1.60934;
 
-function convertDistance(distance: number, unit: Unit) {
+export function convertDistance(distance: number, unit: Unit) {
   if (unit == Unit.Miles) {
     return distance * KM_PER_MILE;
   }
@@ -37,21 +37,21 @@ function convertDistance(distance: number, unit: Unit) {
   return distance / KM_PER_MILE;
 }
 
-function formatSeconds(s: number) {
+export function formatSeconds(s: number) {
   return String(s).padStart(2, '0');
 }
 
-function calcPace(minutes: number, seconds: number, distance: number) {
+export function calcPace(minutes: number, seconds: number, distance: number) {
   const SECONDS_PER_MIN = 60;
   const totalSeconds = (minutes * SECONDS_PER_MIN) + seconds;
   const secondsPerDistance = totalSeconds / distance;
 
-  const paceMinutes = Math.round(secondsPerDistance / SECONDS_PER_MIN);
+  const paceMinutes = Math.floor(secondsPerDistance / SECONDS_PER_MIN);
   const paceSeconds = Math.round(secondsPerDistance % SECONDS_PER_MIN);
   return [paceMinutes, paceSeconds];
 }
 
-function text(minutes: number, seconds: number, distance: number, unit: Unit) {
+export function text(minutes: number, seconds: number, distance: number, unit: Unit) {
   const otherUnit = unselectedUnit(unit);
   const [paceMinutesOriginalUnit, paceSecondsOriginalUnit] = calcPace(minutes, seconds, distance);
   const [paceMinutesOtherUnit, paceSecondsOtherUnit] = calcPace(minutes, seconds, convertDistance(distance, unit));

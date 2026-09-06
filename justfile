@@ -4,3 +4,7 @@ default:
 dev:
   npm run dev
 
+test:
+  npm run test
+
+t: test
